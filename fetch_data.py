@@ -24,8 +24,8 @@ def fetch(descending: bool = False, history: bool = False, first_page: int = 0, 
     :return: None, but creates a jsonl file.
     """
     params = {
-        'descending': descending,
-        'history': history,
+        'descending': 'true' if descending else 'false',
+        'history': 'true' if history else 'false',
         'currentPage': first_page,
         'pageSize': page_size
     }
@@ -66,4 +66,4 @@ def append_to_file(filename: str, content: str) -> None:
 
 
 if __name__ == '__main__':
-    fetch(descending=True, history=True, first_page=0, page_size=100)
+    fetch(descending=True, history=True, first_page=0, page_size=1000)
